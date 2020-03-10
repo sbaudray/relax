@@ -1,0 +1,6 @@
+<div><h2>Messages</h2>
+  <ul class="chat_message_list">
+  </ul>
+</div>
+<input class="chat_message_input" type="text">
+<script src="<%= Routes.static_path(@conn, "/js/chat.js") %>"></script>

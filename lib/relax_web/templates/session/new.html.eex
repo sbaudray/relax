@@ -1,0 +1,8 @@
+<%= form_for @changeset, Routes.session_path(@conn, :create), fn f -> %>
+  <%= label f, :name%>
+  <%= text_input f, :name%>
+  <%= error_tag f, :name%>
+  <%= submit "Login" %>
+<% end %>
+
+<a href="<%= Routes.user_path(RelaxWeb.Endpoint, :new)  %>">Signup instead</a>

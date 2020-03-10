@@ -1,0 +1,6 @@
+<%= form_for @changeset, Routes.user_path(@conn, :create), fn f -> %>
+  <%= label f, :name %>
+  <%= text_input f, :name %>
+  <%= error_tag f, :name %>
+  <%= submit "Submit" %>
+<% end %>

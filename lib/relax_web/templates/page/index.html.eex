@@ -1,0 +1,5 @@
+<section class="phx-hero">
+  <a href="<%= Routes.user_path(RelaxWeb.Endpoint, :new) %>">Sign Up</a>
+  <br>
+  <a href="<%= Routes.session_path(RelaxWeb.Endpoint, :new) %>">Login</a>
+</section>

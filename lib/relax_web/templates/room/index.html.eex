@@ -1,0 +1,9 @@
+<div>Logged in as <%= @current_user.name %></div>
+<h1>Rooms</h1>
+<a href="<%= Routes.room_path(RelaxWeb.Endpoint, :new) %>">Create a new room</a>
+<ul>
+  <%= for room <- @rooms do %>
+    <li><a href="<%= Routes.room_path(RelaxWeb.Endpoint, :show, room.id) %>"><%= room.name  %></a></li>
+
+    <%= end %>
+</ul>
