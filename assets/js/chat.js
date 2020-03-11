@@ -1,7 +1,5 @@
 import socket from "./socket";
 
-socket.connect();
-
 function last(array) {
   return array[array.length - 1];
 }
@@ -24,8 +22,7 @@ channel
     console.log("Unable to join", resp);
   });
 
-channel.on("new_message", payload => {
-  const { body } = payload;
+channel.on("new_message", function handleNewMessage({ body }) {
   const listItem = document.createElement("li");
   listItem.innerText = body;
   messageList.appendChild(listItem);

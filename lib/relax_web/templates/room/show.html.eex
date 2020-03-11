@@ -1,6 +1,10 @@
 <div><h2>Messages</h2>
   <ul class="chat_message_list">
+    <%= for message <- @messages do %>
+      <li><%= message.body %></li>
+    <%= end %>
   </ul>
 </div>
 <input class="chat_message_input" type="text">
+<script>window.userToken = "<%= assigns[:user_token] %>";</script>
 <script src="<%= Routes.static_path(@conn, "/js/chat.js") %>"></script>

@@ -6,13 +6,10 @@ defmodule RelaxWeb.UserController do
 
   def new(conn, _params) do
     changeset = User.changeset(%User{})
-    IO.inspect(changeset)
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"user" => user_params}) do
-    IO.inspect(user_params)
-
     case Accounts.create_user(user_params) do
       {:ok, _user} ->
         conn

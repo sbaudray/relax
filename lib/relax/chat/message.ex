@@ -5,7 +5,7 @@ defmodule Relax.Chat.Message do
   alias Relax.Accounts.User
 
   schema "messages" do
-    field :content, :string
+    field :body, :string
     belongs_to :user, User
     belongs_to :room, Room
 
@@ -14,7 +14,11 @@ defmodule Relax.Chat.Message do
 
   @doc false
   def changeset(%Message{} = message, attrs \\ %{}) do
-    message |> cast(attrs, [:content]) |> validate_required([:content])
+    message
+    |> cast(attrs, [:body, :user_id, :room_id])
+    |> validate_required([:body, :user_id, :room_id])
+    |> foreign_key_constraint(:room_id)
+    |> foreign_key_constraint(:user_id)
   end
 end
 
