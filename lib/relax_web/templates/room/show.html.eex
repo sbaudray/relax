@@ -2,7 +2,7 @@
   <ul class="chat_message_list">
     <%= for message <- @messages do %>
       <li><%= message.body %></li>
-    <%= end %>
+    <% end %>
   </ul>
 </div>
 <input class="chat_message_input" type="text">

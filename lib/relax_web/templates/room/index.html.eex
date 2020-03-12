@@ -8,5 +8,5 @@
       <%= room.name %>
     </a>
   </li>
-  <%= end %>
+  <% end %>
 </ul>

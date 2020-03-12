@@ -13,8 +13,8 @@ defmodule RelaxWeb.RoomController do
     render(conn, "new.html", changeset: changeset)
   end
 
-  def show(conn, params) do
-    messages = Chat.list_messages_by_room(params["room_id"])
+  def show(conn, %{"id" => room_id}) do
+    messages = Chat.list_messages_by_room(room_id)
     render(conn, "show.html", messages: messages)
   end
 
