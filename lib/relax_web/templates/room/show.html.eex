@@ -1,7 +1,7 @@
 <div><h2>Messages</h2>
   <ul class="chat_message_list">
     <%= for message <- @messages do %>
-      <li><%= message.body %></li>
+      <li class="<%= classnames(["message", "message--from-user": assigns.current_user.id == message.user_id])%>"><%= message.body %></li>
     <% end %>
   </ul>
 </div>

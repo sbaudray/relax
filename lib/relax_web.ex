@@ -39,6 +39,8 @@ defmodule RelaxWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      use Classnames
+
       import RelaxWeb.ErrorHelpers
       import RelaxWeb.Gettext
       alias RelaxWeb.Router.Helpers, as: Routes

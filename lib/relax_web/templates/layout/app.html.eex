@@ -12,7 +12,7 @@
     <header>
         <h1>Relax</h1>
         <%= if assigns[:current_user] do %>
-	  <%= form_for @conn, Routes.session_path(@conn, :delete), [method: :delete], fn f -> %>
+	  <%= form_for @conn, Routes.session_path(@conn, :delete), [method: :delete], fn _f -> %>
 	    <%= submit "Logout" %>
 	  <% end %>
   	<% end %>

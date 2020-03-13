@@ -25,6 +25,8 @@ channel
 channel.on("new_message", function handleNewMessage({ body }) {
   const listItem = document.createElement("li");
   listItem.innerText = body;
+  listItem.classList.add("message");
+  listItem.classList.add("message--from-user");
   messageList.appendChild(listItem);
 });
 

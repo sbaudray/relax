@@ -15,6 +15,7 @@ defmodule RelaxWeb.RoomController do
 
   def show(conn, %{"id" => room_id}) do
     messages = Chat.list_messages_by_room(room_id)
+    IO.inspect(messages)
     render(conn, "show.html", messages: messages)
   end
 
