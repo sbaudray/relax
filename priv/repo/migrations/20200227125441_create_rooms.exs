@@ -3,7 +3,8 @@ defmodule Relax.Repo.Migrations.CreateRooms do
 
   def change do
     create table(:rooms) do
-      add :name, :string
+      add :name, :string, null: false
+      add :user_id, references("users"), null: false
 
       timestamps()
     end

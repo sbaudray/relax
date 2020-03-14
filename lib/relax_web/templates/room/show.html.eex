@@ -1,10 +1,16 @@
-<div><h2>Messages</h2>
+<%= if room_owned_by_user?(@current_user, @room) do %>
+  <%= form_for @conn, Routes.room_path(@conn, :delete, @room.id), [method: :delete], fn _f -> %>
+    <%= submit "Supprimer la room" %>
+  <% end %>
+<% end %>
+<div>
+  <h2>Messages</h2>
   <ul class="chat_message_list">
     <%= for message <- @messages do %>
-      <li class="<%= classnames(["message", "message--from-user": assigns.current_user.id == message.user_id])%>"><%= message.body %></li>
+      <li class="<%= classnames(["message", "message--from-user": message_from_user?(@current_user, message)])%>"><%= message.body %></li>
     <% end %>
   </ul>
 </div>
 <input class="chat_message_input" type="text">
-<script>window.userToken = "<%= assigns[:user_token] %>";</script>
+<script>window.userToken = "<%= @user_token %>";</script>
 <script src="<%= Routes.static_path(@conn, "/js/chat.js") %>"></script>

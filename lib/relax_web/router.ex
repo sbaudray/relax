@@ -26,7 +26,7 @@ defmodule RelaxWeb.Router do
 
     resources "/session", SessionController, only: [:new, :create, :delete], singleton: true
 
-    resources "/room", RoomController, only: [:index, :new, :show, :create]
+    resources "/room", RoomController, only: [:index, :new, :show, :create, :delete]
   end
 
   defp authenticate(conn, _) do

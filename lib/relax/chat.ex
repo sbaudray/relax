@@ -16,6 +16,10 @@ defmodule Relax.Chat do
     %Room{} |> Room.changeset(attrs) |> Repo.insert()
   end
 
+  def delete_room(%Room{} = room) do
+    Repo.delete(room)
+  end
+
   def create_message(attrs) do
     %Message{} |> Message.changeset(attrs) |> Repo.insert()
   end
