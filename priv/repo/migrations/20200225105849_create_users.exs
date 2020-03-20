@@ -4,6 +4,7 @@ defmodule Relax.Repo.Migrations.CreateUsers do
   def change do
     create table(:users) do
       add :name, :string, null: false
+      add :password_digest, :string, null: false
 
       timestamps()
     end

@@ -5,12 +5,16 @@ defmodule Relax.Accounts.User do
 
   schema "users" do
     field :name, :string
+    field :password_digest, :string
 
     timestamps()
   end
 
   @doc false
   def changeset(%User{} = user, attrs \\ %{}) do
-    user |> cast(attrs, [:name]) |> validate_required([:name])
+    user
+    |> cast(attrs, [:name, :password_digest])
+    |> validate_required([:name, :password_digest])
+    |> update_change(:password_digest, &Argon2.hash_pwd_salt/1)
   end
 end

@@ -43,7 +43,8 @@ defmodule Relax.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:classnames, "~> 0.1.0"}
+      {:classnames, "~> 0.1.0"},
+      {:argon2_elixir, "~> 2.0"}
     ]
   end
 

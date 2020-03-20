@@ -2,15 +2,13 @@ defmodule RelaxWeb.SessionController do
   use RelaxWeb, :controller
 
   alias Relax.Accounts
-  alias Accounts.User
 
   def new(conn, _params) do
-    changeset = User.changeset(%User{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html")
   end
 
-  def create(conn, %{"user" => %{"name" => username}}) do
-    case Accounts.authenticate_by_name(username) do
+  def create(conn, %{"session_params" => %{"name" => username, "password" => password}}) do
+    case Accounts.authenticate_by_username_and_password(username, password) do
       {:ok, user} ->
         conn
         |> put_flash(:info, "Welcome #{user.name}")

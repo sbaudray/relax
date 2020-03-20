@@ -2,5 +2,8 @@
   <%= label f, :name %>
   <%= text_input f, :name %>
   <%= error_tag f, :name %>
+  <%= label f, :password %>
+  <%= password_input f, :password_digest %>
+  <%= error_tag f, :password_digest %>
   <%= submit "Submit" %>
 <% end %>

@@ -16,12 +16,14 @@ defmodule Relax.Accounts do
     %User{} |> User.changeset(attrs) |> Repo.insert()
   end
 
-  def authenticate_by_name(name) do
-    query = from u in User, where: u.name == ^name
+  def authenticate_by_username_and_password(username, password) do
+    query = from u in User, where: u.name == ^username
 
-    case Repo.one(query) do
-      %User{} = user -> {:ok, user}
-      nil -> {:error, :unauthorized}
+    user = Repo.one(query)
+
+    cond do
+      user && Argon2.verify_pass(password, user.password_digest) -> {:ok, user}
+      true -> {:error, :unauthorized}
     end
   end
 end
