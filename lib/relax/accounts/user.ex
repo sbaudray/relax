@@ -16,5 +16,6 @@ defmodule Relax.Accounts.User do
     |> cast(attrs, [:name, :password_digest])
     |> validate_required([:name, :password_digest])
     |> update_change(:password_digest, &Argon2.hash_pwd_salt/1)
+    |> unique_constraint(:name)
   end
 end

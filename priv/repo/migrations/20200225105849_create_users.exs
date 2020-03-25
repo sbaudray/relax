@@ -8,5 +8,7 @@ defmodule Relax.Repo.Migrations.CreateUsers do
 
       timestamps()
     end
+
+    create unique_index(:users, [:name])
   end
 end
